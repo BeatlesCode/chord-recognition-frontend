@@ -1,6 +1,11 @@
 /**
  * Created by chou6 on 2018-06-28.
  */
+
+window.addEventListener('load', function () {
+    
+})
+
 uploadFile = function () {
     var file = document.getElementById('myFile');
     var filedata = new FormData(); // FormData 인스턴스 생성
