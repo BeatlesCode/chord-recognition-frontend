@@ -3,8 +3,22 @@
  */
 
 window.addEventListener('load', function () {
-    
-})
+    // Not showing vendor prefixes.
+    navigator.getUserMedia({audio: true}, function(localMediaStream) {
+        var video = document.querySelector('video');
+        video.src = window.URL.createObjectURL(localMediaStream);
+        // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+        // See crbug.com/110938.
+        video.onloadedmetadata = function(e) {
+            // Ready to go. Do some stuff.
+            console.log("abc");
+        };
+    }, errorCallback);
+});
+var errorCallback = function(e) {
+    console.log('Reeeejected!', e);
+};
+
 
 uploadFile = function () {
     var file = document.getElementById('myFile');
@@ -14,17 +28,19 @@ uploadFile = function () {
 
     filedata.append('uploadfile', file.files[0]);
 
-    var _xml = new XMLHttpRequest();
-    _xml.open('POST', '/', true);
-    _xml.onload = function (event) {
-        if (_xml.status == 200) {
-            console.log('upload');
-        }
-        else {
-            console.log(error);
+    $.ajax({
+        url: "/",
+        type: 'POST',
+        data: filedata,
+        cache: false,
+        processData: false, // essential
+        contentType: false, // essential, application/pdf doesn't work.
+        enctype: 'multipart/form-data',
 
+        // If sucess, download file
+        success: function(data, status, xhr) {
+            console.log("success");
         }
-    };
+    });
 
-    _xml.send(filedata);
 }

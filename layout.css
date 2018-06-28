@@ -1,10 +1,20 @@
 html, body{
     margin: 0;
+
 }
 header{
     height: 60px;
+
 }
 #container{
     margin: 0 100px;
+    background-color: #9ff9ef;
+
+}
+
+@media screen and (max-width: 600px) {
+    #container{
+        margin: 0;
+    }
 
 }
