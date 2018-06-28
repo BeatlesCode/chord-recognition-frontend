@@ -42,4 +42,4 @@ uploadFile = function () {
         }
     });
 
-}
+};
