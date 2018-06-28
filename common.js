@@ -23,7 +23,6 @@ var errorCallback = function(e) {
 uploadFile = function () {
     var file = document.getElementById('myFile');
     var filedata = new FormData(); // FormData 인스턴스 생성
-    console.log(filedata);
     if (!file.value) return; // 파일이 없는 경우 빠져나오기
 
     filedata.append('uploadfile', file.files[0]);
