@@ -7,6 +7,8 @@ let mediaRecorder;
 let downLink;
 window.addEventListener('load', function () {
     // Not showing vendor prefixes.
+    $("#intro").addClass("dofade");
+    $("#intro").css("opacity","0");
     document.getElementById('upload').addEventListener('click',uploadFile);
     document.getElementById('record').addEventListener('click',recordData);
     document.getElementById("audio_file").addEventListener('change',findBPM);
