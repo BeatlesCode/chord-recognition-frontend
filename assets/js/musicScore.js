@@ -195,7 +195,7 @@ function renderMusicScore() {
 
     */
     let i, starve;
-
+    let max;
     let endtime = data[data.length-1].finish;
     let madi = (60/143)*4;
 
@@ -275,5 +275,9 @@ function changeline() {
 
 
 
+
+}
+function findmax(){
+    let max = 0;
 
 }
