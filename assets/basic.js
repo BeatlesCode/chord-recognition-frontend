@@ -10,7 +10,11 @@ window.addEventListener('load', function () {
     document.getElementById('upload').addEventListener('click',uploadFile);
     document.getElementById('record').addEventListener('click',recordData);
     document.getElementById('stop').addEventListener('click',function () {
-        mediaRecorder.stop();
+        setTimeout(() => {
+            // this will trigger one final 'ondataavailable' event and set recorder state to 'inactive'
+            mediaRecorder.stop();
+        }, 3000);
+
     });
 
     downLink = document.getElementById('download');
