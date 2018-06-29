@@ -9,9 +9,9 @@ window.addEventListener('load', function () {
     // Not showing vendor prefixes.
     $("#intro").addClass("dofade");
     $("#intro").css("opacity","0");
-    document.getElementById('upload').addEventListener('click',uploadFile);
+    document.getElementById('selection').addEventListener('click',invokeSelection);
     document.getElementById('record').addEventListener('click',recordData);
-    document.getElementById("audio_file").addEventListener('change',findBPM);
+    document.getElementById('myFile').addEventListener('change',uploadFile);
     document.getElementById('stop').addEventListener('click',function () {
         setTimeout(() => {
             // this will trigger one final 'ondataavailable' event and set recorder state to 'inactive'
@@ -48,14 +48,15 @@ function handleSuccess(stream) {
     mediaRecorder.start();
 };
 
-
+function invokeSelection() {
+    console.log('clicked');
+    $('#myFile').click();
+}
 function uploadFile(){
     var file = document.getElementById('myFile');
     var filedata = new FormData(); // FormData 인스턴스 생성
     if (!file.value) return; // 파일이 없는 경우 빠져나오기
-
     filedata.append('uploadfile', file.files[0]);
-
     $.ajax({
         url: "/",
         type: 'POST',

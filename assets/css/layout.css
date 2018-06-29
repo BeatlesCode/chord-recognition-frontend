@@ -1,8 +1,9 @@
 html, body{
-    margin: 0;
+    height: 100%;
 }
+
 header{
-    height: 50px;
+    flex: 0 1 50px;
     background-color: #555555;
     position: relative;
     text-align: center;
@@ -20,14 +21,34 @@ header span{
 
 }
 #container{
-    display: none;
     margin: 0 100px;
     background-color: #9ff9ef;
 
 }
 #main{
+
     display: flex;
+    flex-flow: column;
     height: 100%;
+}
+#selection{
+    position: absolute;
+    border-style: none;
+    top: 40px;
+    right: 40px;
+    background-color: white;
+    color: grey;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 35px;
+    font-weight: bold;
+}
+#selection>div{
+    top: -3px;
+    right: 13px;
+    position: absolute;
+    vertical-align: middle;
 }
 #line_container{
     width: 80%;
@@ -37,14 +58,66 @@ header span{
     display: inline-block;
 }
 #intro{
+    display: none;
     position: fixed;
     top:0;
     width: 100%;
     height: 100%;
 }
-.fill{
-    background-color: white;height: 81px;
+#audio_ui{
+    background-color: #3a3a3a;
+    flex: 1 1 60px;
+    position: relative;
+}
+#record{
+    width: 50px;
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-width: thin;
+    position: relative;
+}
+#record>div{
+    position: absolute;
+    top: 15px;
+    left: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}
+#myFile{
+    position: absolute;
+    top: -500%;
+}
+.fill {
+    background-color: white;
+    flex: 1 1 auto;
+}
+#audio_ui .menus{
+    color: white;
+    position: absolute;
+    width: 70%;
+    left: 20%;
+    height: 60px;
+    top: 20%;
+    margin: auto;
+    text-align: center;
 
+}
+#audio_ui .menus>a{
+    vertical-align: middle;
+    color: white;
+    margin-right: 50px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+#audio_ui .menus>a:hover{
+    color: black;
+}
 .dofade{
     -webkit-animation-name: fade;
     -webkit-animation-duration: 2s;
@@ -52,7 +125,43 @@ header span{
     animation-duration: 2s;
 
 }
+.wrapper_body{
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
 
+    background-color: #5D5D5E
+}
+.wrapper_parent {
+    flex: 1 1 auto;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(160px, auto);
+    /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;*/
+    background-color: #5D5D5E;
+    color: #444;
+}
+
+.box {
+    background-color:#9C9B97;
+    color: #fff;
+    border-radius: 0px;
+    padding: 20px;
+    font-size: 100%;
+    justify-self: center;
+}
+.transparent_btn{
+    background-color: transparent;
+    border-style: none;
+    color: white;
+}
 @-webkit-keyframes fade {
     from {opacity: 1}
     to {opacity: 0.2}
