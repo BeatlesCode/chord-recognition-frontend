@@ -12,6 +12,13 @@ header{
 
 }
 
+#line_container{
+    width: 80%;
+
+}
+#line_container > *{
+    display: inline-block;
+}
 @media screen and (max-width: 600px) {
     #container{
         margin: 0;
