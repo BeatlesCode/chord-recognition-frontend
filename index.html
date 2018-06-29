@@ -14,16 +14,28 @@
 </header>
 <section id="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="background-color: skyblue">
                 파일 추가하기 <input type="file" id="myFile" />
 
             <button class="btn" id="upload">파일 업로드</button>
             <button class="btn" id="record">파일 녹음</button>
             <button class="btn" id="stop">파일 녹음 중지</button>
             <a id="download" href="">Download</a>
+
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="background-color: pink">
+            <input id="audio_file" type="file" accept="audio/*"></input>
+            <audio id="audio_player"></audio>
+            <p>
+                Most likely tempo: <span id="output"></span>
+            </p>
+
         </div>
     </div>
-
 
 </section>
 
