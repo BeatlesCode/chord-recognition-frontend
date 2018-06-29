@@ -30,9 +30,12 @@ function handleSuccess(stream) {
         }
     });
     mediaRecorder.addEventListener('stop', function() {
-        console.log(new Blob(recordedChunks));
-        downLink.href = URL.createObjectURL(new Blob(recordedChunks));
-        downLink.download = 'acetest.wav';
+        let data = new Blob(recordedChunks,{type : "audio/mpeg"});
+        data.name = "audioFile.mp3"
+        console.log(data);
+        console.log(mediaRecorder.state);
+        downLink.href = URL.createObjectURL(data);
+        downLink.download = 'audioFile.mp3';
     });
     mediaRecorder.start();
 };
