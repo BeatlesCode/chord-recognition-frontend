@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
         setTimeout(() => {
             // this will trigger one final 'ondataavailable' event and set recorder state to 'inactive'
             mediaRecorder.stop();
-        }, 3000);
+        }, 1000);
 
     });
 
@@ -36,6 +36,7 @@ function handleSuccess(stream) {
     mediaRecorder.addEventListener('stop', function() {
         let data = new Blob(recordedChunks,{type : "audio/mpeg"});
         data.name = "audioFile.mp3"
+        data.size = recordedChunks.length;
         console.log(data);
         console.log(mediaRecorder.state);
         downLink.href = URL.createObjectURL(data);
