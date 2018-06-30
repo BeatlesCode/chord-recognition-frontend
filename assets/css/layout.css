@@ -1,3 +1,4 @@
+
 html, body{
     height: 100%;
 }
@@ -43,6 +44,7 @@ header span{
     border-radius: 50px;
     font-size: 35px;
     font-weight: bold;
+    cursor: pointer;
 }
 #selection>div{
     top: -3px;
@@ -66,8 +68,11 @@ header span{
 }
 #audio_ui{
     background-color: #3a3a3a;
-    flex: 1 1 60px;
+    flex: 0 0 140px;
     position: relative;
+}
+#list{
+    flex: 1 1 auto;
 }
 #record{
     width: 50px;
@@ -79,6 +84,8 @@ header span{
     border-color: white;
     border-width: thin;
     position: relative;
+    float: left;
+    cursor: pointer;
 }
 #record>div{
     position: absolute;
@@ -89,6 +96,9 @@ header span{
     border-radius: 50%;
     background-color: red;
 }
+#record:hover div{
+    background-color: black;
+}
 #myFile{
     position: absolute;
     top: -500%;
@@ -97,26 +107,40 @@ header span{
     background-color: white;
     flex: 1 1 auto;
 }
+.fill_black{
+    background-color: black;
+    flex: 0 1 20px;
+}
 #audio_ui .menus{
     color: white;
     position: absolute;
-    width: 70%;
-    left: 20%;
+    width: 50%;
+    left: 30%;
     height: 60px;
-    top: 20%;
+    top: 30%;
     margin: auto;
     text-align: center;
 
 }
 #audio_ui .menus>a{
     vertical-align: middle;
+    float: left;
     color: white;
     margin-right: 50px;
     font-size: 25px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 #audio_ui .menus>a:hover{
     color: black;
+}
+#play{
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
+}
+#list{
+    display: none;
 }
 .dofade{
     -webkit-animation-name: fade;
@@ -125,22 +149,14 @@ header span{
     animation-duration: 2s;
 
 }
-.wrapper_body{
-    position: fixed;
-    top:0;
-    left: 0;
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    height: 100%;
 
-    background-color: #5D5D5E
-}
 .wrapper_parent {
     flex: 1 1 auto;
+    background-color: #5D5D5E;
 }
 .wrapper {
     display: grid;
+    margin-top: 25px;
     grid-gap: 50px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: minmax(160px, auto);
@@ -148,10 +164,19 @@ header span{
     background-color: #5D5D5E;
     color: #444;
 }
-
+.wrapper>div img{
+    width: 100%;
+    height: 100%;
+}
+.grey_padding{
+    background-color: #555555;
+    flex: 2 1 200px;
+}
 .box {
     background-color:#9C9B97;
     color: #fff;
+    width: 150px;
+    height: 150px;
     border-radius: 0px;
     padding: 20px;
     font-size: 100%;
@@ -161,6 +186,24 @@ header span{
     background-color: transparent;
     border-style: none;
     color: white;
+}
+.transparent:hover{
+    border-style: none;
+
+}
+button{
+    outline: none;
+    border: none;
+
+}
+button:checked{
+    outline: none;
+    border: none;
+}
+
+button:visited{
+    outline: none;
+    border: none;
 }
 @-webkit-keyframes fade {
     from {opacity: 1}

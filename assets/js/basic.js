@@ -1,6 +1,8 @@
 /**
  * Created by chou6 on 2018-06-28.
  */
+let play, list;
+let mode = 0;
 let shouldStop = false;
 let stopped = false;
 let mediaRecorder;
@@ -9,6 +11,9 @@ window.addEventListener('load', function () {
     // Not showing vendor prefixes.
     $("#intro").addClass("dofade");
     $("#intro").css("opacity","0");
+    play = $("#play");
+    list = $("#list");
+    document.getElementById('menubtn').addEventListener('click',switchmode);
     document.getElementById('selection').addEventListener('click',invokeSelection);
     document.getElementById('record').addEventListener('click',recordData);
     document.getElementById('myFile').addEventListener('change',uploadFile);
@@ -47,7 +52,18 @@ function handleSuccess(stream) {
     });
     mediaRecorder.start();
 };
+function switchmode() {
+    if(mode == 0){
+        mode = 1;
+        play.css('display','none');
+        list.css('display','block');
 
+    }else{
+        mode = 0;
+        list.css('display','none');
+        play.css('display','flex');
+    }
+}
 function invokeSelection() {
     console.log('clicked');
     $('#myFile').click();
