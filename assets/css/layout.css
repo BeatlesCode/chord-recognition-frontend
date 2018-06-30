@@ -60,7 +60,7 @@ header span{
     display: inline-block;
 }
 #intro{
-    display: none;
+
     position: fixed;
     top:0;
     width: 100%;
@@ -207,12 +207,12 @@ button:visited{
 }
 @-webkit-keyframes fade {
     from {opacity: 1}
-    to {opacity: 0.2}
+    to {opacity: 0}
 }
 
 @keyframes fade {
     from {opacity: 1}
-    to {opacity: 0.2}
+    to {opacity: 0}
 }
 
 @media screen and (max-width: 600px) {
