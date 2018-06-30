@@ -11,6 +11,7 @@ window.addEventListener('load', function () {
     // Not showing vendor prefixes.
     $("#intro").addClass("dofade");
     $("#intro").css("opacity","0");
+    document.getElementById('intro').addEventListener('animationend',hideIntro);
     play = $("#play");
     list = $("#list");
     document.getElementById('menubtn').addEventListener('click',switchmode);
@@ -27,6 +28,9 @@ window.addEventListener('load', function () {
 
     downLink = document.getElementById('download');
 });
+function hideIntro() {
+    $("#intro").css('display','none');
+}
 var errorCallback = function(e) {
     console.log('Reeeejected!', e);
 };
