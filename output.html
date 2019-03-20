@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<input type="file" id="myFile"/>
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -9,17 +10,38 @@
     <title>BeatlesCode</title>
 </head>
 <body>
-<header>
-    hi
-</header>
-<section id="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div>duration : <span id="duration"></span> </div>
+<div id="main">
+    <header>
+        <span id="songinfo">연주하기</span>
+    </header>
+    <div id="play">
+
+        <div class="fill_black"></div>
+        <div style="flex: 0 1 240px;background-color: white;">
+
             <div id="line_container">
 
             </div>
-            <button class="btn" id="start">start</button>
+        </div>
+        <div class="fill_black"></div>
+        <div class="grey_padding">
+            <!--<input type='file' id='fileinput'>-->
+            <input class="btn" type='button' id='btnLoad' value='Load'>
+            <button class="btn" id="start">start!</button>
+            <audio id="myAudio" src="assets/mp3/13%20Blue%20Marble.flac" preload="auto">
+            </audio>
+
+            <a onClick="togglePlay()">Click here to hear.</a>
+        </div>
+    </div>
+</div>
+
+
+<section id="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
         </div>
     </div>
 </section>

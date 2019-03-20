@@ -23,7 +23,7 @@ header span{
 }
 #container{
     margin: 0 100px;
-    background-color: #9ff9ef;
+    background-color: #9df975;
 
 }
 #main{
@@ -53,7 +53,7 @@ header span{
     vertical-align: middle;
 }
 #line_container{
-    width: 80%;
+
 
 }
 #line_container > *{
@@ -181,6 +181,7 @@ header span{
     padding: 20px;
     font-size: 100%;
     justify-self: center;
+    position: relative;
 }
 .transparent_btn{
     background-color: transparent;

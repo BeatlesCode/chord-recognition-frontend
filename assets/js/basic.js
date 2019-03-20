@@ -1,14 +1,12 @@
-/**
- * Created by chou6 on 2018-06-28.
- */
+
 let play, list;
+let lastsentence;
 let mode = 0;
 let shouldStop = false;
 let stopped = false;
 let mediaRecorder;
 let downLink;
 window.addEventListener('load', function () {
-    // Not showing vendor prefixes.
     $("#intro").addClass("dofade");
     $("#intro").css("opacity","0");
     document.getElementById('intro').addEventListener('animationend',hideIntro);
@@ -61,11 +59,14 @@ function switchmode() {
         mode = 1;
         play.css('display','none');
         list.css('display','block');
+        lastsentence = $('#songinfo').text();
+        $('#songinfo').text('목 차');
 
     }else{
         mode = 0;
         list.css('display','none');
         play.css('display','flex');
+        $('#songinfo').text(lastsentence);
     }
 }
 function invokeSelection() {
@@ -82,10 +83,9 @@ function uploadFile(){
         type: 'POST',
         data: filedata,
         cache: false,
-        processData: false, // essential
-        contentType: false, // essential, application/pdf doesn't work.
+        processData: false,
+        contentType: false,
         enctype: 'multipart/form-data',
-
         // If sucess, download file
         success: function(data, status, xhr) {
             console.log("success");
@@ -206,7 +206,7 @@ function groupNeighborsByTempo(intervalCounts) {
     return tempoCounts;
 }
 
-// http://stackoverflow.com/questions/1669190/javascript-min-max-array-values
+
 function arrayMin(arr) {
     var len = arr.length,
         min = Infinity;
